@@ -18,7 +18,7 @@ public class ServerApplication {
         int serverPort = Integer.parseInt(PropertiesTool.getPropertiesName("server_port"));
         ServerCollection serverCollection =
                 new ServerCollection(
-                        Arrays.asList(new Server[]{new WebServer(serverPort)}));
+                        Arrays.asList(new Server[]{new WebServer(serverPort, "com.zhz.http")}));
         serverCollection.startServer();
         Runtime.getRuntime().addShutdownHook(new Thread(() -> serverCollection.stopServer()));
         System.out.println("服务端已启动");

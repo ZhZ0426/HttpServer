@@ -26,14 +26,15 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  * @time 2019/2/19 15:52
  */
 public class WebServer implements Server {
-    private String basePackage = "com.zhz.http";
+    private String basePackage = "com.zhz";
     private int port;
     private EventLoopGroup bossGroup;
     private EventLoopGroup workerGroup;
     private ServerBootstrap b;
 
-    public WebServer(int port) {
+    public WebServer(int port, String basePackage) {
         this.port = port;
+        this.basePackage = basePackage;
         bossGroup = new NioEventLoopGroup();
         workerGroup = new NioEventLoopGroup();
         b = new ServerBootstrap();
